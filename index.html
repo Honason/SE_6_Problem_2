@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="examApp">
+  <head lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+     <script src="app.js"></script>
+    <title>Angular</title>
+  </head>
+  <body ng-controller="mainController as mainCtrl">
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a href="/#/">All Persons</a></li>
+          <li><a style="cursor: pointer;" ng-click="mainCtrl.toggleNewUser()"><span ng-show="mainCtrl.newUserVisible">Hide</span> New Person</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container" style="margin-top: 80px;">
+      <h1>Routing Example</h1>
+
+      <form ng-show="mainCtrl.newUserVisible" ng-submit="mainCtrl.createUser()">
+        <h3>Create new user</h3>
+        <div class="form-group">
+          <label for="personName">Person's name</label>
+          <input type="text" class="form-control" id="personName" ng-model="mainCtrl.personName">
+        </div>
+        <div class="form-group">
+          <label for="personAge">Age</label>
+          <input type="text" class="form-control" id="personAge" ng-model="mainCtrl.personAge">
+        </div>
+        <button type="submit" class="btn btn-default">Create</button>
+      </form>
+
+      <ng-view></ng-view>
+    </div>
+  </body>
+</html>

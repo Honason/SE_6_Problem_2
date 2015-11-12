@@ -1,0 +1,12 @@
+<h3>Person List</h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Details</th>
+  </tr>
+  <tr ng-repeat="person in listCtrl.personService.persons">
+    <td ng-bind="person.name"></td>
+    <td><a href="#/person/{{person.id}}" ng-bind="person.id"></a></td>
+  </tr>
+</table>
